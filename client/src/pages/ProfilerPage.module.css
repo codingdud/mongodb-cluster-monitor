@@ -1,0 +1,75 @@
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.stats {
+  display: flex;
+  gap: 12px;
+}
+
+.statChip {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--text3);
+}
+
+.sectionHeading {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text2);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.activeTable tr.rowCritical td {
+  background: rgba(248, 81, 73, 0.08) !important;
+  color: var(--red);
+}
+
+/* Virtualization Styles */
+.virtualViewport {
+  position: relative;
+  overflow-y: auto;
+  max-height: calc(100vh - 280px); /* Adjust based on header/stats height */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg1);
+}
+
+.virtualTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.virtualTable thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg2);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.virtualTable th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  color: var(--text3);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.virtualTable td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.virtualSpacer {
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+services:
+  monitor:
+    image: akanoob/mongodb-cluster-monitor:latest
+    # build: .  <-- You can uncomment this if you ever want to build locally again
+    container_name: mongodb-cluster-monitor
+    ports:
+      - "4001:4000"
+    env_file:
+      - .env.docker
+    # Attach our monitor to the existing MongoDB cluster network so it can
+    # communicate directly with the mongos router and shards by hostname.
+    networks:
+      - mongo-shard
+    restart: unless-stopped
+
+networks:
+  mongo-shard:
+    external: true

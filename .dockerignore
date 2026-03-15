@@ -1,0 +1,16 @@
+node_modules
+client/node_modules
+.env
+.git
+.gitignore
+*.md
+Dockerfile
+.dockerignore
+npm-debug.log
+data/
+tmp/
+CVS
+.svn
+.hg
+.lock-wscript
+.DS_Store

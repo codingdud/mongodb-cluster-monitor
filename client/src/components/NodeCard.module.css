@@ -1,0 +1,39 @@
+.card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  cursor: pointer;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+}
+.card:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.35);
+}
+.cardPrimary { border-color: #1f6feb; }
+.cardDown    { border-color: var(--red); opacity: .7; }
+
+.cardTop { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
+.name    { font-size: 12px; font-weight: 600; font-family: var(--mono); color: var(--text); }
+.addr    { font-size: 10px; color: var(--text3); font-family: var(--mono); }
+
+.role { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: .06em; }
+.rolePrimary   { background: #0d2d6e;         color: var(--blue);   }
+.roleSecondary { background: var(--green-bg); color: var(--green);  }
+.roleArbiter   { background: var(--amber-bg); color: var(--amber);  }
+.roleRouter    { background: var(--teal-bg);  color: var(--teal);   }
+.roleOnline    { background: var(--green-bg); color: var(--green);  }
+.roleDown      { background: var(--red-bg);   color: var(--red);    }
+
+.sparkWrap { height: 34px; margin: 8px 0 6px; }
+
+.stat { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid var(--border); font-size: 11px; }
+.stat:last-of-type { border-bottom: none; }
+.statLabel { color: var(--text3); }
+.statVal   { color: var(--text); font-family: var(--mono); font-weight: 500; }
+.statVal.err  { color: var(--red);   }
+.statVal.warn { color: var(--amber); }
+.statVal.ok   { color: var(--green); }
+
+.expandHint { margin-top: 8px; font-size: 10px; color: var(--blue); text-align: center; }
