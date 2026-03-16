@@ -3,10 +3,16 @@ const express = require('express');
 const path    = require('path');
 const logger  = require('./lib/logger');
 const MonitorEngine = require('./lib/engine');
+const rateLimit = require('express-rate-limit');
 
 const PORT = parseInt(process.env.PORT || '4000', 10);
 const app    = express();
 const engine = new MonitorEngine();
+
+const frontendLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+});
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -125,7 +131,7 @@ app.get('/api/events', (req, res) => {
 });
 
 // ── Serve frontend ─────────────────────────────────────────────────────────
-app.get('*', (req, res) => {
+app.get('*', frontendLimiter, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
